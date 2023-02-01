@@ -13,6 +13,4 @@ To reproduce the temperature prediction expriments, run with:
 
 > python main.py --method MAML --model MLP_MAML
 
-For the cross dataset image completion experiments, we provide both the probabistic and deterministic model:
-
 
