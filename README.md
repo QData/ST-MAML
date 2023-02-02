@@ -1,4 +1,4 @@
-# Prompting Decisicion Transformer for Few-Shot Policy Generalization
+# ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning
 
 Code repository for UAI 2022 paper "ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning". [[paper]](https://openreview.net/forum?id=rrlMyPUs9gc)
 
