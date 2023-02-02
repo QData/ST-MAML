@@ -1,6 +1,6 @@
-# ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning
+# ST-MAML: A Stochastic-Task based Method for Task-Heterogeneous Meta-Learning
 
-Code repository for UAI 2022 paper "ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning". [[paper]](https://openreview.net/forum?id=rrlMyPUs9gc)
+Code repository for UAI 2022 paper "ST-MAML: A Stochastic-Task based Method for Task-Heterogeneous Meta-Learning". [[paper]](https://openreview.net/forum?id=rrlMyPUs9gc)
 
 ## Run Experiments
 ```
