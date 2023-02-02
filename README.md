@@ -1,31 +1,44 @@
-## ST-MAML
+# Prompting Decisicion Transformer for Few-Shot Policy Generalization
 
-Code for the UAI 2022 paper "ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning (https://openreview.net/forum?id=rrlMyPUs9gc)"
+Code repository for UAI 2022 paper "ST-MAML: A Stochastic-Task based Method forTask-Heterogeneous Meta-Learning". [[paper]](https://openreview.net/forum?id=rrlMyPUs9gc)
 
-Code is adapted from [A Closer Look at Few-Shot Classification](https://github.com/wyharveychen/CloserLookFewShot).
+## Run Experiments
+```
+# Temperature prediction expriments
 
+cd ST-MAML-Weather
 
-To reproduce the temperature prediction expriments, run with:
+python main.py --method ST_MAML
 
-> cd ST-MAML-Weather
+# Cross dataset image completion experiments
 
-> python main.py --method ST_MAML
+cd ST-MAML-ImgCompletion
 
-> python main.py --method MAML --model MLP_MAML
+python meta_main.py
 
+# Regression fitting
 
-For the cross dataset image completion experiments, run with:
+cd ST-MAML-Reg
 
-> cd ST-MAML-ImgCompletion
+python python meta_main.py --aug_enc --kl_weight=2.0  --in_weight_rest=0.1 --model_type='prob' --output_folder='results'
 
-> python meta_main.py
+For visualization purpose, 
 
-For the regression fitting, train a model with: 
+python visual.py --aug_enc --kl_weight=2.0  --in_weight_rest=0.1 --model_type='prob' --output_folder='results' 
+```
 
-> cd ST-MAML-Reg
+## Acknowledgements
+The code for ST-MAML is based on [A Closer Look at Few-Shot Classification](https://github.com/wyharveychen/CloserLookFewShot).
 
-> python python meta_main.py --aug_enc --kl_weight=2.0  --in_weight_rest=0.1 --model_type='prob' --output_folder='results'
-
-For visualization purpose, run with:
-
-> python visual.py --aug_enc --kl_weight=2.0  --in_weight_rest=0.1 --model_type='prob' --output_folder='results' 
+## References
+If you find our code helpful for your research, please consider citing the paper!
+```		
+@inproceedings{
+wang2022stmaml,
+title={{ST}-{MAML}: A Stochastic-Task based Method for Task-Heterogeneous Meta-Learning},
+author={Zhe Wang and Jake Grigsby and Arshdeep Sekhon and Yanjun Qi},
+booktitle={The 38th Conference on Uncertainty in Artificial Intelligence},
+year={2022},
+url={https://openreview.net/forum?id=rrlMyPUs9gc}
+}
+```
