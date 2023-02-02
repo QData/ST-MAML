@@ -195,7 +195,7 @@ class ST_MAML(MetaTemplate):
             if i % print_freq==0:
                 print('Epoch {:d} | Batch {:d}/{:d} | NLL Loss {:f} | Loss {:f}'.format(epoch, i, len(train_loader), avg_loss_nll/float(batch_x.size(0)),  avg_loss/float(batch_x.size(0))))
             
-    def test_loop(self, test_loader, return_std = False):        
+    def test_loop(self, test_loader):        
         correct =0
         count = 0
         acc_all = []
@@ -210,12 +210,9 @@ class ST_MAML(MetaTemplate):
                 break
         acc_all  = np.asarray(acc_all)
         acc_mean = np.mean(acc_all)
-        acc_std  = np.std(acc_all)
-        print('%d Test Acc = %4.2f +- %4.2f%%' %(iter_num,  acc_mean, 1.96* acc_std/np.sqrt(iter_num)))
-        if return_std:
-            return acc_mean, acc_std
-        else:
-            return acc_mean
+        print('%d Test MSE = %4.2f' %(iter_num,  acc_mean))
+       
+        return acc_mean
 
 
 

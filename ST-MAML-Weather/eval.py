@@ -3,9 +3,8 @@ import torch
 import os
 import backbone
 import numpy as np
-from np_hmaml import NP_HMAML
+from st_maml import ST_MAML
 from weather_loader import NOAA_GSOD_MetaDset
-from maml import MAML
 from io_utils import model_dict, get_arguments, get_resume_file, get_best_file
 import random
 seed = 1234
@@ -20,7 +19,7 @@ from torch.utils.data import DataLoader
 def eval(test_loader, model, params):    
 
         model.eval()
-        acc, save_list = model.test_loop(test_loader)
+        acc = model.test_loop(test_loader)
         print(acc)
 
 
@@ -47,11 +46,8 @@ if __name__=='__main__':
 
 
     train_few_shot_params    = dict(n_way = params.train_n_way, n_support = params.n_shot) 
-    if params.method =='NP_HMAML':
-        model = NP_HMAML(model_dict[params.model], **train_few_shot_params)
-    elif params.method == 'MAML':
-        model = MAML(model_dict[params.model], **train_few_shot_params)
-
+    model = ST_MAML(model_dict[params.model], **train_few_shot_params)
+   
     model = model.to(device)
 
     model.n_task     = params.meta_bs

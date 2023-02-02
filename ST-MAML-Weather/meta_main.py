@@ -1,11 +1,9 @@
-from posixpath import split
 import torch
 import os
 import backbone
 import numpy as np
 from st_maml import ST_MAML
 from weather_loader import NOAA_GSOD_MetaDset
-from maml import MAML
 from io_utils import model_dict, get_arguments, get_resume_file, get_best_file
 import random
 seed = 123
@@ -70,10 +68,8 @@ if __name__=='__main__':
 
 
     train_few_shot_params    = dict(n_way = params.train_n_way, n_support = params.n_shot) 
-    if params.method =='ST_MAML':
-        model = ST_MAML(model_dict[params.model], **train_few_shot_params)
-    elif params.method == 'MAML':
-        model = MAML(model_dict[params.model], **train_few_shot_params)
+    model = ST_MAML(model_dict[params.model], **train_few_shot_params)
+    
 
     model = model.to(device)
 
