@@ -31,7 +31,7 @@ python visual.py --aug_enc --kl_weight=2.0  --in_weight_rest=0.1 --model_type='p
 The code for ST-MAML is based on [A Closer Look at Few-Shot Classification](https://github.com/wyharveychen/CloserLookFewShot).
 
 ## References
-If you find our code helpful for your research, please consider citing the paper!
+Please cite our paper as:
 ```		
 @inproceedings{
 wang2022stmaml,
